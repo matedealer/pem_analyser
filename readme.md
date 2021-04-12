@@ -26,7 +26,7 @@ Usage:
 python cli.py /path/to/pem-file
 ```
 
-For example (zsh syntax):
+To analyse all example files in the cert folder run (zsh syntax):
 ```
 for file in $(find certs -name "*.pem" )
         python cli.py $file && echo "\n"
