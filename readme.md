@@ -7,10 +7,12 @@
 ### Certificate
 The creating and managing of X509 Certificates have some security pitfalls. Most important a certificate has to be valid.  
 A valid certificate has to fulfill two main requirements:
-* The signature of the certificate and of any certificate in the sign chain has to be correct (currently not checked by 
-  the script).
+* The signature of the certificate and of any certificate in the sign chain has to be correct (not checked by 
+  the script yet).
 * The current date has to be in the timespan defined by the *not valid before* and *not valid after* date fields of the 
   certificate.
+* The certificate is not revoked. One method to check if a certificate is revoked is OCSP. Currently, this script do not check 
+whether a certificate is revoked or not.
 
 Another important security feature of certificates is the Hash-Algorithm used to create the signature. For example openssl 
 currently support several weak algorithm like MD5 or SHA1 which has known weaknesses. Weak hash algorithm create for example 
