@@ -45,3 +45,6 @@ https://www.keylength.com/en/compare/
 https://perspectiverisk.com/multiple-ssl-tls-certificate-weaknesses/  
 https://cryptologie.net/article/374/common-x509-certificate-validationcreation-pitfalls/  
 https://github.com/golang/go/issues/15194
+
+## Sources
+The file server2.pem is copied from https://svn.python.org/projects/external/openssl-1.0.1h/apps/server2.pem
