@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import click
 import pem
 from OpenSSL import crypto
@@ -21,7 +23,10 @@ def import_pem_file(pem_file: str) -> []:
             try:
                 pem_obj = PemObject(load_pem_private_key(pem_str.as_bytes(), None), PRIVKEY)
             except TypeError:
-                print("This script cannot open encrypted private keys!")
+                print("[X] This script cannot open encrypted private keys!")
+                continue
+            except ValueError:
+                print("[X] Could not read the private key for unknown reason!")
                 continue
         else:
             continue
@@ -41,7 +46,9 @@ def cli_read_pem_file(pem_file):
     for elem in pem_obj_list:
         click.echo(">> Analysing {}".format(elem.pem_type))
         for check in CECK_DICT[elem.pem_type]:
-            check(elem.pem)
+            return_value = check(elem.pem)
+            if return_value:
+                print(return_value)
 
 
 if __name__ == '__main__':
